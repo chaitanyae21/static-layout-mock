@@ -1,16 +1,24 @@
 <!DOCTYPE html>
+<!--
+  This page replicates a simple static layout from a design mock. It uses semantic HTML elements
+  and is organised into a header, hero, features section and footer. See styles.css for styling.
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Brief description to improve SEO and accessibility -->
+  <meta name="description" content="Static layout mock page demonstrating a responsive header, hero section, feature cards and footer.">
   <title>Static Layout Mock</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Header: contains site logo and navigation -->
   <header class="site-header">
     <div class="container">
       <h1 class="logo">MyCompany</h1>
-      <nav class="navigation">
+      <!-- Navigation uses anchor links; aria-label improves accessibility for screen readers -->
+      <nav class="navigation" aria-label="Primary">
         <a href="#">Home</a>
         <a href="#">About</a>
         <a href="#">Services</a>
@@ -19,6 +27,8 @@
     </div>
   </header>
 
+  <!-- Main content starts here -->
+  <main>
   <section class="hero">
     <div class="container">
       <h2>Welcome to our product</h2>
@@ -27,7 +37,8 @@
     </div>
   </section>
 
-  <section class="features">
+  <!-- Features section: three cards describing key offerings -->
+  <section class="features" id="features">
     <div class="container cards">
       <div class="card">
         <h3>Feature One</h3>
@@ -44,6 +55,8 @@
     </div>
   </section>
 
+  </main>
+  <!-- Footer: company copyright -->
   <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 MyCompany. All rights reserved.</p>

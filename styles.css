@@ -1,9 +1,23 @@
-/* General styles */
+/* Base styles
+   -------------------------------------------------------------------------
+   Define CSS variables for colors to improve maintainability and easy theme
+   changes. All subsequent styles reference these variables rather than hard
+   coded values.
+*/
+:root {
+  --primary-color: #0d6efd;
+  --primary-hover: #0a58ca;
+  --light-bg: #f7f9fc;
+  --card-bg: #f8f9fa;
+  --text-color: #333;
+}
+
+/* Reset & typography */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: var(--text-color);
 }
 
 .container {
@@ -12,9 +26,13 @@ body {
   margin: 0 auto;
 }
 
-/* Header styles */
+/* Header styles
+   -------------------------------------------------------------------------
+   The header uses flexbox to space the logo and navigation. The primary
+   colour variables are used for background and interactive states.
+*/
 .site-header {
-  background: #0d6efd;
+  background: var(--primary-color);
   color: #fff;
 }
 
@@ -30,20 +48,24 @@ body {
   font-size: 1.5rem;
 }
 
-.navigation a {
-  color: #fff;
-  margin-left: 1rem;
-  text-decoration: none;
-  font-weight: 500;
-}
+  .navigation a {
+    color: #fff;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+  }
 
-.navigation a:hover {
-  text-decoration: underline;
-}
+  .navigation a:hover {
+    text-decoration: underline;
+  }
 
-/* Hero section */
+/* Hero section
+   -------------------------------------------------------------------------
+   Large section introducing the product or service. Background uses a light
+   colour variable, with generous padding and centred text.
+*/
 .hero {
-  background: #f7f9fc;
+  background: var(--light-bg);
   padding: 4rem 0;
   text-align: center;
 }
@@ -58,20 +80,30 @@ body {
   margin: 0.5rem auto 1.5rem;
 }
 
+/* Reusable button
+   -------------------------------------------------------------------------
+   Buttons share the primary colour; the hover state uses a darker shade.
+*/
 .btn {
-  background: #0d6efd;
+  background: var(--primary-color);
   color: #fff;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
+  display: inline-block;
 }
 
 .btn:hover {
-  background: #0a58ca;
+  background: var(--primary-hover);
 }
 
-/* Features cards */
+/* Features cards
+   -------------------------------------------------------------------------
+   The cards are laid out using flexbox and wrap on smaller screens. Each card
+   has a subtle shadow and rounded corners to create separation from the
+   background.
+*/
 .features {
   padding: 3rem 0;
   background: #fff;
@@ -83,22 +115,25 @@ body {
   gap: 1.5rem;
 }
 
-.card {
-  flex: 1 1 calc(33.333% - 1.5rem);
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
+  .card {
+    flex: 1 1 calc(33.333% - 1.5rem);
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
 
 .card h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
-/* Footer */
+/* Footer
+   -------------------------------------------------------------------------
+   Simple centred footer with primary background colour.
+*/
 .site-footer {
-  background: #0d6efd;
+  background: var(--primary-color);
   color: #fff;
   text-align: center;
   padding: 1rem 0;
