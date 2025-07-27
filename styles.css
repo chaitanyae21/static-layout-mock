@@ -13,6 +13,20 @@
   /* Controls how many columns the cards grid uses. This value is updated in media queries
      to ensure the layout scales gracefully on different screen sizes. */
   --columns: 3;
+
+  /* Spacing scale for consistent paddings and margins throughout the
+     application. Having a central spacing scale makes it easy to adjust
+     whitespace globally without hunting through every selector. */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+
+  /* Generic presentation tokens used throughout the site. These ensure that
+     border radii and shadows are consistent across components and can be
+     tweaked in a single place. */
+  --border-radius: 6px;
+  --shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 /* Reset & typography */
@@ -43,7 +57,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  /* Use spacing variables rather than hard coded values for vertical padding */
+  padding: var(--spacing-md) 0;
 }
 
 .logo {
@@ -69,7 +84,8 @@ body {
 */
 .hero {
   background: var(--light-bg);
-  padding: 4rem 0;
+  /* The hero section uses a larger vertical padding derived from the spacing scale */
+  padding: calc(var(--spacing-lg) * 2) 0;
   text-align: center;
 }
 
@@ -90,7 +106,9 @@ body {
 .btn {
   background: var(--primary-color);
   color: #fff;
-  padding: 0.75rem 1.5rem;
+  /* Button padding composed from the spacing scale. Horizontal and vertical values can
+     be tweaked centrally via the variables defined in :root. */
+  padding: calc(var(--spacing-sm) + var(--spacing-xs)) calc(var(--spacing-md) + var(--spacing-sm));
   border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
@@ -108,7 +126,8 @@ body {
    background.
 */
 .features {
-  padding: 3rem 0;
+  /* Features section padding combines large and medium spacing for generous whitespace */
+  padding: calc(var(--spacing-lg) + var(--spacing-md)) 0;
   background: #fff;
 }
 
@@ -126,9 +145,11 @@ body {
   .card {
     /* Grid layout now controls card sizing; remove flex property */
     background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    /* Card padding uses the spacing scale for consistency */
+    padding: calc(var(--spacing-md) + var(--spacing-sm));
+    /* Apply shared presentation tokens for radius and shadow */
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
   }
 
 .card h3 {
