@@ -10,6 +10,9 @@
   --light-bg: #f7f9fc;
   --card-bg: #f8f9fa;
   --text-color: #333;
+  /* Controls how many columns the cards grid uses. This value is updated in media queries
+     to ensure the layout scales gracefully on different screen sizes. */
+  --columns: 3;
 }
 
 /* Reset & typography */
@@ -109,14 +112,19 @@ body {
   background: #fff;
 }
 
+/* Container for feature cards
+   -------------------------------------------------------------------------
+   Use CSS Grid instead of flexbox to make the layout easier to scale. The
+   number of columns is driven by the --columns variable defined above.
+*/
 .cards {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
   gap: 1.5rem;
 }
 
   .card {
-    flex: 1 1 calc(33.333% - 1.5rem);
+    /* Grid layout now controls card sizing; remove flex property */
     background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 6px;
@@ -141,13 +149,18 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .cards {
-    flex-direction: column;
-  }
-  .card {
-    flex: 1 1 100%;
+  /* Reduce the number of columns on medium screens */
+  :root {
+    --columns: 2;
   }
   .navigation {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* On very small screens, stack cards in a single column */
+  :root {
+    --columns: 1;
   }
 }
