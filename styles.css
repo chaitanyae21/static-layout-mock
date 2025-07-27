@@ -164,3 +164,28 @@ body {
     --columns: 1;
   }
 }
+
+/* Utility classes
+   -------------------------------------------------------------------------
+   These classes can be reused across multiple pages or components. They
+   encapsulate common patterns such as visually hidden text and margin
+   utilities. They are not currently used in this mock but provide a solid
+   starting point for extension.
+*/
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.mt-2 { margin-top: 0.5rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+
+.container--narrow {
+  max-width: 800px;
+}
