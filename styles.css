@@ -147,6 +147,31 @@ body {
   padding: 1rem 0;
 }
 
+/* Accessibility and focus styles
+   -------------------------------------------------------------------------
+   Provide clear focus outlines for interactive elements to help keyboard
+   navigation users. The outline color ties into the primary theme colour.
+*/
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Dark mode support
+   -------------------------------------------------------------------------
+   Respect the user's system preference for dark mode by swapping out
+   background and text colours using CSS variables. This improves
+   readability in dark environments without requiring any JavaScript.
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --light-bg: #1a1b1e;
+    --card-bg: #2a2b2f;
+    --text-color: #f1f3f5;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   /* Reduce the number of columns on medium screens */
